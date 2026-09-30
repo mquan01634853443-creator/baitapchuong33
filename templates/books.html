@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}
+Danh sách sách - LibraryMS
+{% endblock %}
+
+
+{% block content %}
+
+<h2>📚 Danh sách sách</h2>
+
+
+<!-- Bộ lọc -->
+<form method="get" action="{{ url_for('books') }}">
+
+    <label for="category">
+        Lọc theo thể loại:
+    </label>
+
+    <select name="category" id="category">
+
+        <option value="">
+            Tất cả
+        </option>
+
+        <option value="Lập trình"
+            {% if category == "Lập trình" %}selected{% endif %}>
+            Lập trình
+        </option>
+
+        <option value="Web"
+            {% if category == "Web" %}selected{% endif %}>
+            Web
+        </option>
+
+        <option value="Cơ sở dữ liệu"
+            {% if category == "Cơ sở dữ liệu" %}selected{% endif %}>
+            Cơ sở dữ liệu
+        </option>
+
+    </select>
+
+    <button type="submit">
+        Lọc
+    </button>
+
+</form>
+
+
+<hr>
+
+
+{% if books %}
+
+<div class="book-list">
+
+    {% for book in books %}
+
+    <div class="book-card">
+
+        <h3>
+            <a href="{{ url_for('book_detail', book_id=book.id) }}">
+                {{ book.title|e }}
+            </a>
+        </h3>
+
+        <p>
+            <strong>Tác giả:</strong>
+            {{ book.author|e }}
+        </p>
+
+        <p>
+            <strong>Năm:</strong>
+            {{ book.year }}
+        </p>
+
+        <p>
+            <strong>Thể loại:</strong>
+            {{ book.category|e }}
+        </p>
+
+        {% if book.available %}
+            <span class="available">
+                Có thể mượn
+            </span>
+        {% else %}
+            <span class="unavailable">
+                Đã được mượn
+            </span>
+        {% endif %}
+
+        <p>
+            <a href="{{ url_for('book_detail', book_id=book.id) }}">
+                Xem chi tiết →
+            </a>
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<p>
+    Không tìm thấy sách phù hợp.
+</p>
+
+{% endif %}
+
+{% endblock %}

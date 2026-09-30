@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+Trang chủ - LibraryMS
+{% endblock %}
+
+
+{% block content %}
+
+<h2>📖 Thư viện sách</h2>
+
+<div class="stats">
+
+    <div class="card">
+        <h3>Tổng số sách</h3>
+        <p class="number">{{ total_books }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Sách sẵn sàng cho mượn</h3>
+        <p class="number">{{ available_books }}</p>
+    </div>
+
+</div>
+
+<p>
+    <a class="button" href="{{ url_for('books') }}">
+        Xem danh sách sách
+    </a>
+</p>
+
+{% endblock %}

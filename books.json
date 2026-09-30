@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "Lập trình Python cơ bản",
+        "author": "Nguyễn Văn An",
+        "year": 2024,
+        "category": "Lập trình",
+        "available": true
+    },
+    {
+        "id": 2,
+        "title": "Flask Web Development",
+        "author": "Trần Văn Bình",
+        "year": 2023,
+        "category": "Web",
+        "available": true
+    },
+    {
+        "id": 3,
+        "title": "Cơ sở dữ liệu MySQL",
+        "author": "Lê Minh Cường",
+        "year": 2022,
+        "category": "Cơ sở dữ liệu",
+        "available": false
+    },
+    {
+        "id": 4,
+        "title": "HTML và CSS",
+        "author": "Phạm Thị Dung",
+        "year": 2024,
+        "category": "Web",
+        "available": true
+    },
+    {
+        "id": 5,
+        "title": "JavaScript cơ bản",
+        "author": "Hoàng Văn Em",
+        "year": 2023,
+        "category": "Web",
+        "available": true
+    }
+]

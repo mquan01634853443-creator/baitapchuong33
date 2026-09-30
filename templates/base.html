@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}LibraryMS{% endblock %}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+
+        <h1>📚 LibraryMS</h1>
+
+        <nav>
+            <a href="{{ url_for('home') }}">Trang chủ</a>
+            <a href="{{ url_for('books') }}">Danh sách sách</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<footer>
+    <div class="container">
+        <p>LibraryMS v0.1</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ book.title|e }} - LibraryMS
+{% endblock %}
+
+
+{% block content %}
+
+<h2>📖 Chi tiết sách</h2>
+
+<div class="detail-card">
+
+    <h3>{{ book.title|e }}</h3>
+
+    <p>
+        <strong>ID:</strong>
+        {{ book.id }}
+    </p>
+
+    <p>
+        <strong>Tác giả:</strong>
+        {{ book.author|e }}
+    </p>
+
+    <p>
+        <strong>Năm xuất bản:</strong>
+        {{ book.year }}
+    </p>
+
+    <p>
+        <strong>Thể loại:</strong>
+        {{ book.category|e }}
+    </p>
+
+    <p>
+        <strong>Tình trạng:</strong>
+
+        {% if book.available %}
+            <span class="available">
+                Có sẵn - có thể mượn
+            </span>
+        {% else %}
+            <span class="unavailable">
+                Không có sẵn
+            </span>
+        {% endif %}
+
+    </p>
+
+</div>
+
+
+<p>
+    <a class="button" href="{{ url_for('books') }}">
+        ← Quay lại danh sách
+    </a>
+</p>
+
+{% endblock %}
